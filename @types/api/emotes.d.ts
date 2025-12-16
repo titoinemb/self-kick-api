@@ -9,7 +9,7 @@ type Emote = {
   name: string;
   subscribers_only: boolean;
 };
-// RESONSE
+// RESPONSE
 export declare type Emotes = [
   {
     id: number;
