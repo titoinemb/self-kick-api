@@ -89,7 +89,7 @@ type WithChannel<E extends Events> = E extends ExcludeChannel
   ? { channel?: never }   // must be omitted
   : { channel: string };  // required
 // RESPONSE
-declare type WebSocketKick<E extends Events = Events> = {
+export declare type WebSocketKick<E extends Events = Events> = {
   event: E;
   data: EventPayloadMap[E];
 } & WithChannel<E>;

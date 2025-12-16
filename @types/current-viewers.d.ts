@@ -7,7 +7,7 @@
  * and in the json livestream.id
  */
 // RESPONSE
-declare type CurrentViewers = {
+export declare type CurrentViewers = {
   livestream_id: number;  // Number representing the livestream ID
   viewers: number;        // Number of current viewers
 };
