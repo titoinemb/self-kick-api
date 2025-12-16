@@ -104,7 +104,7 @@
   },
   "role": <Null>,
   "muted": <Boolean>,
-  "follower_badges": [<Any>],
+  "follower_badges": [],
   "offline_banner_image": {
     "src": <String>,
     "srcet": <String>
@@ -222,7 +222,7 @@
       "mime_type": <String>,
       "disk": <String>,
       "size": <Number>,
-      "manipulations": [<Any>],
+      "manipulations": [],
       "custom_properties": {
         "generated_conversions": {
           "fullsize": <Boolean>
