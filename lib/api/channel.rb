@@ -13,8 +13,3 @@ def channel(name)
     puts "Erreur : #{response.message}"
   end
 end
-
-
-# Exemple d'utilisation
-
-channel("akaruu")

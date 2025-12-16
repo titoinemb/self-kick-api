@@ -43,15 +43,3 @@ def create_websocket(chatroom_id)
 
   socket
 end
-
-
-# Exemple d'utilisation
-
-chatroom_id = "109122"
-ws = create_websocket(chatroom_id)
-
-Thread.new do
-  loop do
-    sleep 1
-  end
-end.join
