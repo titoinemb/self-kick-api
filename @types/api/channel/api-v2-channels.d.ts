@@ -11,4 +11,9 @@ type Categories = "chatroom"
                   | "recent-categories"
                   | "goals"
                   | "links"
-                  | "" // no categorie;
+                  | "" /* no categorie*/;
+
+
+export declare type ApiV2Channels = {
+
+};

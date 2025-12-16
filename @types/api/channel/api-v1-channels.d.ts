@@ -19,8 +19,8 @@ type Categories = {
   name: string;
   slug: string;
   tags: string[];
-  description: null; //! to def
-  deleted_at: null; //! to def
+  description: null | string;
+  deleted_at: null | string;
   is_mature: boolean;
   is_promoted: boolean;
   viewers: number;
@@ -55,10 +55,10 @@ type PreviousLivestreams = {
   created_at: string;
   session_title: string;
   is_live: boolean;
-  risk_level_id: null; //! to def
+  risk_level_id: null; // edit
   start_time: string;
   source: string;
-  twitch_channel: null; //! to def
+  twitch_channel: null | string;
   duration: number;
   language: string;
   is_mature: boolean;
@@ -74,15 +74,15 @@ type PreviousLivestreams = {
   video: {
     id: number;
     live_stream_id: number;
-    slug: null; //! to def
-    thumb: null; //! to def
-    s3: null; //! to def
-    trading_platform_id: null; //! to def
+    slug: null | string;
+    thumb: null | string;
+    s3: null | string;
+    trading_platform_id: null; // edit
     created_at: string;
     updated_at: string;
     uuid: string;
     viewers: number;
-    deleted_at: null; //! to def
+    deleted_at: null | string;
     is_pruned: boolean;
     is_private: boolean;
     status: string;
@@ -99,7 +99,7 @@ type Media = {
   mime_type: string;
   disk: string;
   size: number;
-  manipulations: []; //! to def
+  manipulations: []; // edit
   custom_properties: {
     generated_conversions: {
       fullsize: boolean;
@@ -142,10 +142,10 @@ export declare type ApiV1Channels = {
     created_at: string;
     session_title: string;
     is_live: boolean;
-    risk_level_id: null; //! to def
+    risk_level_id: null; // edit
     start_time: string;
-    source: null; //! to def
-    twitch_channel: null; //! to def
+    source: null; // edit
+    twitch_channel: null | string;
     duration: number;
     language: string;
     is_mature: boolean;
@@ -159,9 +159,9 @@ export declare type ApiV1Channels = {
     tags: string[];
     categories: Categories[];
   };
-  role: null; //! to def
+  role: null; // edit
   muted: boolean;
-  follower_badges: any[]; //! to def
+  follower_badges: any[]; // edit
   offline_banner_image: {
     src: string;
     srcet: string;
@@ -182,7 +182,7 @@ export declare type ApiV1Channels = {
     discord: string;
     tiktok: string;
     facebook: string;
-    gender: null; //! to def
+    gender: null | string;
     profile_pic: string;
   };
   chatroom: {

@@ -81,7 +81,7 @@ type EventPayloadMap<M extends Message = Message> = {
       id: string;
     };
     aiModerated: boolean;
-    violatedRules: []; //! to def
+    violatedRules: []; // edit
   };
 };
 // exclude or not channel data
