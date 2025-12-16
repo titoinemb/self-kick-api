@@ -118,7 +118,7 @@ type Media = {
   conversions_disk: string;
 };
 // RESPONSE
-declare type ApiV1Channels = {
+export declare type ApiV1Channels = {
   id: number;
   user_id: number;
   slug: string;
