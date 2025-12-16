@@ -2,13 +2,14 @@
  * emotes.d.ts
  * Type for /api/emotes/<name>
  */
+//
 type Emote = {
   id: number;
   channel_id: number | null;
   name: string;
   subscribers_only: boolean;
 };
-
+// RESONSE
 export declare type Emotes = [
   {
     id: number;
