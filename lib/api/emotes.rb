@@ -2,7 +2,7 @@ require 'net/http'
 require 'json'
 require 'uri'
 
-def viewers(name)
+def emotes(name)
   uri = URI.parse("https://kick.com/emotes/#{name}")
   response = Net::HTTP.get_response(uri)
 
