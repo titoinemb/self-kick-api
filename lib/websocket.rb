@@ -2,8 +2,6 @@ require 'websocket-client-simple'
 require 'json'
 require 'uri'
 
-BASE_URL = "wss://ws-us2.pusher.com/app/32cbd69e4b950bf97679"
-
 def create_websocket(chatroom_id)
   url_params = URI::HTTP.build(
     host: 'ws-us2.pusher.com',
