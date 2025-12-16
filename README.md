@@ -1,15 +1,10 @@
 # SELF KICK API Documentation
 
-## Base URL
-`https://kick.com`
-
-## Endpoints
-
 ### 1. Get Current Viewers
-- **Endpoint:** `/current-viewers?ids[]=<livestream_id>`
+- **Endpoint:** `https://kick.com/current-viewers?ids[]=<livestream_id>`
 - **Method:** GET
-- **Description:** Retrieves current viewer count for a specific livestream using its ID. for get livestream_id is with <a href="#2-get-informations-from-channel">channel informations</a>
-- **Type:** <a href="./@types/current-viewers.d.ts">File</a>
+- **Description:** for get livestream_id is with <a href="#2-get-informations-from-channel">channel informations</a>
+- **Type:** <a href="./@types/api/current-viewers.d.ts">File</a>
 
 #### Response:
 ```json
@@ -20,10 +15,10 @@
 ```
 
 ### 2. Get informations from channel
-- **Endpoint:** `/api/v1/channels/<name>`
+- **Endpoint:** `https://kick.com/api/v1/channels/<name>`
 - **Method:** GET
 - **Description:** 
-- **Type:** <a href="./@types/api-v1-channels.d.ts">File</a>
+- **Type:** <a href="./@types/api/channel/api-v1-channels.d.ts">File</a>
 
 #### Response:
 ```json
@@ -239,6 +234,81 @@
       "updated_at": <String>,
       "uuid": <String>,
       "conversions_disk": <String>
+    }
+  ]
+}
+```
+
+### 3. Get channel emotes
+- **Endpoint:** `https://kick.com/emotes/<name>`
+- **Method:** GET
+- **Description:** get channel emotes
+- **Type:** <a href="./@types/api/emotes.d.ts">File</a>
+
+#### Response:
+```json
+{
+  "response": [
+    {
+      "id": <Number>,
+      "user_id": <Number>,
+      "slug": <String>,
+      "is_banned": <Boolean>,
+      "playback_url": <String>,
+      "name_updated_at": <String or null>,
+      "vod_enabled": <Boolean>,
+      "subscription_enabled": <Boolean>,
+      "is_affiliate": <Boolean>,
+      "emotes": [
+        {
+          "id": <Number>,
+          "channel_id": <Number or null>,
+          "name": <String>,
+          "subscribers_only": <Boolean>
+        }
+      ],
+      "can_host": <Boolean>,
+      "user": {
+        "id": <Number>,
+        "username": <String>,
+        "agreed_to_terms": <Boolean>,
+        "email_verified_at": <String>,
+        "bio": <String>,
+        "country": <String or null>,
+        "state": <String or null>,
+        "city": <String or null>,
+        "instagram": <String>,
+        "twitter": <String>,
+        "youtube": <String>,
+        "discord": <String>,
+        "tiktok": <String>,
+        "facebook": <String>,
+        "gender": <String or null>
+      }
+    },
+    {
+      "name": <String>,
+      "id": <String>,
+      "emotes": [
+        {
+          "id": <Number>,
+          "channel_id": <Number or null>,
+          "name": <String>,
+          "subscribers_only": <Boolean>
+        }
+      ]
+    },
+    {
+      "name": <String>,
+      "id": <String>,
+      "emotes": [
+        {
+          "id": <Number>,
+          "channel_id": <Number or null>,
+          "name": <String>,
+          "subscribers_only": <Boolean>
+        }
+      ]
     }
   ]
 }
