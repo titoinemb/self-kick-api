@@ -2,8 +2,8 @@ require 'net/http'
 require 'json'
 require 'uri'
 
-def kicks(id, category)
-  uri = URI.parse("https://web.kick.com/api/v1/kicks/#{id}/#{category}")
+def ApiV1Channels(name)
+  uri = URI.parse("https://kick.com/api/v1/channels/#{name}")
   response = Net::HTTP.get_response(uri)
 
   if response.is_a?(Net::HTTPSuccess)

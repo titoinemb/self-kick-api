@@ -2,7 +2,7 @@ require 'net/http'
 require 'uri'
 require 'json'
 
-def livestreams(id, bearerToken, content, type)
+def ApiV2SendMessage(id, bearerToken, content, type)
   uri = URI.parse("https://kick.com/api/v2/messages/send/#{id}")
   http = Net::HTTP.new(uri.host, uri.port)
   http.use_ssl = true # Use SSL for HTTPS

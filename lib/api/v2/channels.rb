@@ -2,7 +2,7 @@ require 'net/http'
 require 'json'
 require 'uri'
 
-def channel(name, categorie = "")
+def ApiV2Channels(name, categorie = "")
   uri = URI.parse("https://kick.com/api/v2/channels/#{name}/#{categorie}")
   response = Net::HTTP.get_response(uri)
 
