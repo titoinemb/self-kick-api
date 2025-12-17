@@ -1,6 +1,8 @@
 /**
- * api-v1-channels.d.d.ts
- * Type for /api/v1/channels/<name>
+ * api/v1/channels.d.d.ts
+ * Type for https://kick.com/api/v1/channels/<name>
+ * 
+ * method: GET
  */
 // informations for a sub badge
 type SubscriberBadge = {
@@ -12,8 +14,8 @@ type SubscriberBadge = {
     src: string;
   };
 };
-// informations for a game categorie
-type Categories = {
+// informations for a game category
+type Category = {
   id: number;
   category_id: number;
   name: string;
@@ -70,7 +72,7 @@ type PreviousLivestreams = {
   viewers: number;
   lang_iso: string;
   tags: string[];
-  categories: Categories[];
+  categories: Category[];
   video: {
     id: number;
     live_stream_id: number;
@@ -134,7 +136,7 @@ export declare type ApiV1Channels = {
     responsive: string;
     url: string;
   };
-  recent_categories: Categories[];
+  recent_categories: Category[];
   livestream: {
     id: number;
     slug: string;
@@ -157,7 +159,7 @@ export declare type ApiV1Channels = {
     viewers: number;
     lang_iso: string;
     tags: string[];
-    categories: Categories[];
+    categories: Category[];
   };
   role: null; // edit
   muted: boolean;

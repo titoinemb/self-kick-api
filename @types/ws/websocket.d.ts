@@ -1,31 +1,37 @@
 /**
- * websocket.d.ts
+ * ws/websocket.d.ts
  * Type for wss://ws-us2.pusher.com/app/32cbd69e4b950bf97679
+ * 
+ * method: websocket
  */
 // list of events
-type Events = "App\\Events\\ChatMessageEvent"
+type Events =   "App\\Events\\ChatMessageEvent"
               | "pusher:subscribe"
               | "pusher_internal:subscription_succeeded"
               | "ping"
               | "pong"
-              | "App\\Events\\MessageDeletedEvent";
+              | "App\\Events\\MessageDeletedEvent"
+              | "pusher:connection_established"
+              | "PointsUpdated"
+              | "RewardRedeemedEvent";
 // list of events for explude channel in racine of json
-type ExcludeChannel = "ping"
+type ExcludeChannel =   "ping"
                       | "pong"
                       | "pusher_internal:subscription_succeeded"
                       | "pusher:subscribe";
 // list of events message
-type Message =  "reply"
+type Message =    "reply"
                 | "message"
                 | "celebration";
-//
+// badge informations
 type Badge = {
   type: string;
   text: string;
-  count: number;
+  count: number | never;
 };
-//
+// list of type message
 type TypeMessaePlayloadMap = {
+  // replay to a message
   "reply": {
     original_sender: {
       id: number;
@@ -37,9 +43,11 @@ type TypeMessaePlayloadMap = {
     };
     message_ref: string;
   };
+  // juste send message
   "message": {
     message_ref: string;
   };
+  // sub with message
   "celebration": {
     "celebration": {
       id: string;
@@ -49,8 +57,9 @@ type TypeMessaePlayloadMap = {
     }
   }
 };
-//
+// list of event in websockets
 type EventPayloadMap<M extends Message = Message> = {
+  // new message
   "App\\Events\\ChatMessageEvent": {
     id: string;
     chatroom: number;
@@ -68,6 +77,7 @@ type EventPayloadMap<M extends Message = Message> = {
     };
     metadata: TypeMessaePlayloadMap[M];
   };
+  // connecte to websocket
   "pusher:subscribe": {
     auth: string;
     channel: string;
@@ -75,6 +85,7 @@ type EventPayloadMap<M extends Message = Message> = {
   "pusher_internal:subscription_succeeded": {};
   "ping": {};
   "pong": {};
+  // message delete by modo
   "App\\Events\\MessageDeletedEvent": {
     id: string;
     message: {
@@ -82,6 +93,31 @@ type EventPayloadMap<M extends Message = Message> = {
     };
     aiModerated: boolean;
     violatedRules: []; // edit
+  };
+  "pusher:connection_established" : {
+    socket_id: string;
+    activity_timeout: number;
+  };
+  // buy reward by channel points
+  "RewardRedeemedEvent": {
+    reward_title: string;
+    user_id: number;
+    channel_id: number;
+    username: string;
+    user_input: string;
+    reward_background_color: string; // HEX code color
+  };
+  /**
+   * private event
+   * 
+   * this list of event is your private event juste visible by you
+   */
+  "PointsUpdated": {
+    reason: string;
+    points: number;
+    balance: number;
+    user_id: number;
+    channel_id: number;
   };
 };
 // exclude or not channel data

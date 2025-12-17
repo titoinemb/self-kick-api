@@ -1,9 +1,11 @@
 /**
- * api-v2-channels.d.d.ts
- * Type for /api/v2/channels/<name>/<categorie>
+ * api/v2/channels.d.d.ts
+ * Type for https://kick.com/api/v2/channels/<name>/<category>
+ * 
+ * method: GET
  */
-// list of categorie
-type Categories = "chatroom"
+// list of category
+type Category =   "chatroom"
                   | "videos"
                   | "leaderboards"
                   | "polls"
@@ -11,7 +13,7 @@ type Categories = "chatroom"
                   | "recent-categories"
                   | "goals"
                   | "links"
-                  | "" /* no categorie*/;
+                  | "" /* no category*/;
 
 
 export declare type ApiV2Channels = {

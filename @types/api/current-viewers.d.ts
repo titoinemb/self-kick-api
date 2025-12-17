@@ -1,6 +1,8 @@
 /**
- * current-viewers.d.ts
- * Type for /current-viewers?ids[]=<livestream_id>
+ * /api/current-viewers.d.ts
+ * Type for https://kick.com/api/current-viewers?ids[]=<livestream_id>
+ * 
+ * method: GET
  * 
  * How to get livestream_id ? :
  * use /api/v1/channels/<name>

@@ -1,8 +1,10 @@
 /**
- * emotes.d.ts
- * Type for /api/emotes/<name>
+ * api/emotes.d.ts
+ * Type for https://kick.com/api/emotes/<name>
+ * 
+ * method: GET
  */
-//
+// informations of emote
 type Emote = {
   id: number;
   channel_id: number | null;
