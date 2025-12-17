@@ -2,8 +2,8 @@ require 'net/http'
 require 'json'
 require 'uri'
 
-def livestreams(categorie, lang)
-  uri = URI.parse("https://web.kick.com/api/v1/livestreams/#{categorie}?language=#{lang}")
+def emotes(id)
+  uri = URI.parse("https://web.kick.com/api/v1/chat/#{id}/history")
   response = Net::HTTP.get_response(uri)
 
   if response.is_a?(Net::HTTPSuccess)
