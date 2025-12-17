@@ -1,0 +1,1 @@
+# DELETE https://kick.com/api/v2/chatrooms/#{id}/messages/#{message_id}
