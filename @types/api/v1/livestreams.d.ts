@@ -33,7 +33,7 @@ type Livestreams = {
 
 type Datas = {
   "featured": {
-    livestreams: Livestreams[]
+    livestreams: Livestreams[];
   };
 };
 

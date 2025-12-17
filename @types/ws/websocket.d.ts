@@ -13,7 +13,8 @@ type Events =   "App\\Events\\ChatMessageEvent"
               | "App\\Events\\MessageDeletedEvent"
               | "pusher:connection_established"
               | "PointsUpdated"
-              | "RewardRedeemedEvent";
+              | "RewardRedeemedEvent"
+              | "App\\Events\\StreamHostEvent";
 // list of events for explude channel in racine of json
 type ExcludeChannel =   "ping"
                       | "pong"
@@ -54,8 +55,8 @@ type TypeMessaePlayloadMap = {
       type: string;
       total_months: string;
       created_at: string;
-    }
-  }
+    };
+  };
 };
 // list of event in websockets
 type EventPayloadMap<M extends Message = Message> = {
@@ -106,6 +107,13 @@ type EventPayloadMap<M extends Message = Message> = {
     username: string;
     user_input: string;
     reward_background_color: string; // HEX code color
+  };
+  // hosting event
+  "App\\Events\\StreamHostEvent": {
+    chatroom_id: number;
+    optional_message: null | string;
+    number_viewers: number;
+    host_username: string;
   };
   /**
    * private event
