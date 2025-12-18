@@ -15,7 +15,10 @@ type Events =   "App\\Events\\ChatMessageEvent"
               | "PointsUpdated"
               | "RewardRedeemedEvent"
               | "App\\Events\\StreamHostEvent"
-              | "KicksGifted";
+              | "KicksGifted"
+              | "App\\Events\\UserBannedEvent"
+              | "App\\Events\\UserUnbannedEvent"
+              | "pusher:error";
 // list of events for explude channel in racine of json
 type ExcludeChannel =   "ping"
                       | "pong"
@@ -136,6 +139,45 @@ type EventPayloadMap<M extends Message = Message> = {
       pinned_time: number;
     };
     created_at: string;
+  };
+  // user banned event
+  "App\\Events\\UserBannedEvent": {
+    id: string;
+    user: {
+      id: number;
+      username: string;
+      slug: string;
+    };
+    banned_by: {
+      id: number;
+      username: string;
+      slug: string;
+    };
+    permanent: boolean;
+    duration:   number /** if permanent === false */
+              | never /** if permanent === true */;
+    expires_at:   string /** if permanent === false */
+                | never /** if permanent === true */;
+  };
+  // user unban event
+  "App\\Events\\UserUnbannedEvent": {
+    id: string;
+    user: {
+      id: number;
+      username: string;
+      slug: string;
+    };
+    unbanned_by: {
+      id: number;
+      username: string;
+      slug: string;
+    };
+    permanent: boolean;
+  };
+  // error
+  "pusher:error": {
+    code: number;
+    message: string;
   };
   /**
    * private event
