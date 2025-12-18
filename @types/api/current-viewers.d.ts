@@ -1,5 +1,5 @@
 /**
- * /api/current-viewers.d.ts
+ * api/current-viewers.d.ts
  * Type for https://kick.com/api/current-viewers?ids[]=<livestream_id>
  * 
  * method: GET

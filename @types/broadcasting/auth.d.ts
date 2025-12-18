@@ -1,5 +1,5 @@
 /**
- * /api/current-viewers.d.ts
+ * broadcasting/auth.d.ts
  * Type for https://kick.com/broadcasting/auth
  * 
  * method: POST
