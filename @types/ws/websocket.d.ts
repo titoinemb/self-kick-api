@@ -14,7 +14,8 @@ type Events =   "App\\Events\\ChatMessageEvent"
               | "pusher:connection_established"
               | "PointsUpdated"
               | "RewardRedeemedEvent"
-              | "App\\Events\\StreamHostEvent";
+              | "App\\Events\\StreamHostEvent"
+              | "KicksGifted";
 // list of events for explude channel in racine of json
 type ExcludeChannel =   "ping"
                       | "pong"
@@ -114,6 +115,27 @@ type EventPayloadMap<M extends Message = Message> = {
     optional_message: null | string;
     number_viewers: number;
     host_username: string;
+  };
+  // kick gift event
+  "KicksGifted": {
+    gift_transaction_id: string;
+    message: string;
+    sender: {
+      id: number;
+      username: string;
+      username_color: string;
+      profile_picture: string;
+    };
+    gift: {
+      gift_id: string;
+      name: string;
+      amount: number;
+      type: string;
+      tier: string;
+      character_limit: number;
+      pinned_time: number;
+    };
+    created_at: string;
   };
   /**
    * private event
