@@ -5,34 +5,53 @@
  * method: websocket
  */
 // list of events
-type Events =   "App\\Events\\ChatMessageEvent"
-              | "pusher:subscribe"
-              | "pusher_internal:subscription_succeeded"
-              | "ping"
-              | "pong"
-              | "App\\Events\\MessageDeletedEvent"
-              | "pusher:connection_established"
-              | "PointsUpdated"
-              | "RewardRedeemedEvent"
-              | "App\\Events\\StreamHostEvent"
-              | "KicksGifted"
-              | "App\\Events\\UserBannedEvent"
-              | "App\\Events\\UserUnbannedEvent"
-              | "pusher:error";
+type Events = "App\\Events\\ChatMessageEvent"
+  | "pusher:subscribe"
+  | "pusher_internal:subscription_succeeded"
+  | "ping"
+  | "pong"
+  | "App\\Events\\MessageDeletedEvent"
+  | "pusher:connection_established"
+  | "PointsUpdated"
+  | "RewardRedeemedEvent"
+  | "App\\Events\\StreamHostEvent"
+  | "KicksGifted"
+  | "App\\Events\\UserBannedEvent"
+  | "App\\Events\\UserUnbannedEvent"
+  | "pusher:error"
+  | "App\\Events\\PollUpdateEvent"
+  | "App\\Events\\PollDeleteEvent"
+  | "PredictionCreated"
+  | "PredictionUpdated";
 // list of events for explude channel in racine of json
-type ExcludeChannel =   "ping"
-                      | "pong"
-                      | "pusher_internal:subscription_succeeded"
-                      | "pusher:subscribe";
+type ExcludeChannel = "ping"
+  | "pong"
+  | "pusher_internal:subscription_succeeded"
+  | "pusher:subscribe";
 // list of events message
-type Message =    "reply"
-                | "message"
-                | "celebration";
+type Message = "reply"
+  | "message"
+  | "celebration";
 // badge informations
 type Badge = {
   type: string;
   text: string;
   count: number | never;
+};
+// polls options
+type PollOptions = {
+  id: number;
+  label: string;
+  votes: 0;
+};
+// Prediction Options
+type PredictionOptions = {
+  id: string;
+  title: string;
+  total_vote_amount: number;
+  vote_count: number;
+  return_rate: number;
+  top_users: []; //edit
 };
 // list of type message
 type TypeMessaePlayloadMap = {
@@ -99,7 +118,7 @@ type EventPayloadMap<M extends Message = Message> = {
     aiModerated: boolean;
     violatedRules: []; // edit
   };
-  "pusher:connection_established" : {
+  "pusher:connection_established": {
     socket_id: string;
     activity_timeout: number;
   };
@@ -154,10 +173,10 @@ type EventPayloadMap<M extends Message = Message> = {
       slug: string;
     };
     permanent: boolean;
-    duration:   number /** if permanent === false */
-              | never /** if permanent === true */;
-    expires_at:   string /** if permanent === false */
-                | never /** if permanent === true */;
+    duration: number /** if permanent === false */
+    | never /** if permanent === true */;
+    expires_at: string /** if permanent === false */
+    | never /** if permanent === true */;
   };
   // user unban event
   "App\\Events\\UserUnbannedEvent": {
@@ -178,6 +197,48 @@ type EventPayloadMap<M extends Message = Message> = {
   "pusher:error": {
     code: number;
     message: string;
+  };
+  // polls event
+  "App\\Events\\PollUpdateEvent": {
+    poll: {
+      title: string;
+      options: PollOptions[];
+      duration: number;
+      remaining: number;
+      result_display_duration: number | never;
+      has_voted: boolean | never;
+      voted_option_id: null | never; // edit
+    };
+  };
+  // polls delete event
+  "App\\Events\\PollDeleteEvent": [];
+  // prediction created event
+  "PredictionCreated": {
+    prediction: {
+      id: string;
+      channel_id: number;
+      title: string;
+      state: string;
+      outcomes: PredictionOptions[];
+      duratiom: number;
+      created_at: string;
+      updated_at: string;
+    };
+  };
+  // prediction updated
+  "PredictionUpdated": {
+    prediction: {
+      id: string;
+      channel_id: number;
+      title: string;
+      state: string;
+      outcomes: PredictionOptions[];
+      duratiom: number;
+      created_at: string;
+      updated_at: string;
+      locked_at: string | never;
+      winning_outcome_id: string | never;
+    };
   };
   /**
    * private event
