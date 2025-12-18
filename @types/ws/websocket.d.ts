@@ -6,32 +6,32 @@
  */
 // list of events
 type Events = "App\\Events\\ChatMessageEvent"
-  | "pusher:subscribe"
-  | "pusher_internal:subscription_succeeded"
-  | "ping"
-  | "pong"
-  | "App\\Events\\MessageDeletedEvent"
-  | "pusher:connection_established"
-  | "PointsUpdated"
-  | "RewardRedeemedEvent"
-  | "App\\Events\\StreamHostEvent"
-  | "KicksGifted"
-  | "App\\Events\\UserBannedEvent"
-  | "App\\Events\\UserUnbannedEvent"
-  | "pusher:error"
-  | "App\\Events\\PollUpdateEvent"
-  | "App\\Events\\PollDeleteEvent"
-  | "PredictionCreated"
-  | "PredictionUpdated";
+            | "pusher:subscribe"
+            | "pusher_internal:subscription_succeeded"
+            | "ping"
+            | "pong"
+            | "App\\Events\\MessageDeletedEvent"
+            | "pusher:connection_established"
+            | "PointsUpdated"
+            | "RewardRedeemedEvent"
+            | "App\\Events\\StreamHostEvent"
+            | "KicksGifted"
+            | "App\\Events\\UserBannedEvent"
+            | "App\\Events\\UserUnbannedEvent"
+            | "pusher:error"
+            | "App\\Events\\PollUpdateEvent"
+            | "App\\Events\\PollDeleteEvent"
+            | "PredictionCreated"
+            | "PredictionUpdated";
 // list of events for explude channel in racine of json
 type ExcludeChannel = "ping"
-  | "pong"
-  | "pusher_internal:subscription_succeeded"
-  | "pusher:subscribe";
+                    | "pong"
+                    | "pusher_internal:subscription_succeeded"
+                    | "pusher:subscribe";
 // list of events message
-type Message = "reply"
-  | "message"
-  | "celebration";
+type Message =  "reply"
+              | "message"
+              | "celebration";
 // badge informations
 type Badge = {
   type: string;
