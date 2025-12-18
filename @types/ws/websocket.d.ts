@@ -22,7 +22,9 @@ type Events = "App\\Events\\ChatMessageEvent"
             | "App\\Events\\PollUpdateEvent"
             | "App\\Events\\PollDeleteEvent"
             | "PredictionCreated"
-            | "PredictionUpdated";
+            | "PredictionUpdated"
+            | "App\\Events\\ChatroomUpdatedEvent"
+            | "App\\Events\\ChatroomClearEvent";
 // list of events for explude channel in racine of json
 type ExcludeChannel = "ping"
                     | "pong"
@@ -239,6 +241,36 @@ type EventPayloadMap<M extends Message = Message> = {
       locked_at: string | never;
       winning_outcome_id: string | never;
     };
+  };
+  // event for channel settings update
+  "App\\Events\\ChatroomUpdatedEvent": {
+    id: number;
+    slow_mode: {
+      enabled: boolean;
+      message_interval: number;
+    };
+    subscribers_mode: {
+      enabled: boolean;
+    };
+    followers_mode: {
+      enabled: boolean;
+      min_duration: number;
+    };
+    emotes_mode: {
+      enabled: boolean;
+    };
+    advanced_bot_protection: {
+      enabled: boolean;
+      remaining_time: number;
+    };
+    account_age: {
+      enabled: boolean;
+      min_duration: number;
+    };
+  };
+  // chat clear by moderator event
+  "App\\Events\\ChatroomClearEvent": {
+    id: string;
   };
   /**
    * private event
