@@ -19,3 +19,7 @@ export declare type BroadcastingAuthRequest = {
   channel_name: string;
   socket_id: string; // the socket id return in connection
 };
+// RESPONSE
+export declare type BroadcastingAuthResponse = {
+  auth: string;
+};
