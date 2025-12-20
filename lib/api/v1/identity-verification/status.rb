@@ -1,11 +1,9 @@
-# 
-
 require 'net/http'
 require 'json'
 require 'uri'
 
-def ApiV2ChannelFollowed(bearerToken)
-  uri = URI.parse("https://web.kick.com/api/v1/user/session")
+def ApiV1Identity_verificationStatus(bearerToken)
+  uri = URI.parse("https://kick.com/api/v1/identity-verification/status")
   http = Net::HTTP.new(uri.host, uri.port)
   http.use_ssl = true # Enable SSL/TLS for HTTPS
 
