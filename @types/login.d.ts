@@ -1,6 +1,6 @@
 /**
  * login.d.ts
- * Type for 
+ * Type for https://kick.com/mobile/login
  * 
  * method: POST
  */
