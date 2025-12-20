@@ -4,7 +4,7 @@
  * 
  * method: GET
  */
-// channel informationssssssssssssssssssssssssssssssssss
+// channel informations
 type Channel = {
   is_live: boolean;
   profile_picture: string;
