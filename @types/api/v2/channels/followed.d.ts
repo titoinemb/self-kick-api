@@ -1,6 +1,6 @@
 /**
  * api/v2/channels/followed.d.d.ts
- * Type for https://web.kick.com/api/v1/kicks/balance
+ * Type for https://web.kick.com/api/v1/channels/followed
  * 
  * method: GET
  */
@@ -15,4 +15,4 @@ type Channel = {
   session_title: null | string;
 };
 // RESPONSE
-export declare type ApiV1KicksBalance = Channel[];
+export declare type ApiV2ChannelsFollowed = Channel[];
