@@ -1,5 +1,5 @@
 /**
- * api/v1/categories/top.d.d.ts
+ * api/v1/categories/top.d.ts
  * Type for https://kick.com/api/v1/categories/top
  * 
  * method: GET

@@ -1,18 +1,16 @@
 /**
- * api/v1/chat.d.d.ts
- * Type for https://kick.com/api/v1/chat/<id>/category
+ * api/v1/chat/history.d.ts
+ * Type for https://web.kick.com/api/v1/chat/<channel_id>/history
  * 
  * method: GET
  */
-// list of category
-type Category = "history";
-// badge datas
+// badge informations
 type Badge = {
   type: string;
   text: string;
   count: number | never;
 };
-// message datas
+// message informations
 type Message = {
   id: string;
   chat_id: number;
@@ -30,7 +28,7 @@ type Message = {
   };
   created_at: string;
 };
-// pinned message datas
+// pinned messages informations
 type PinnedMessage = {
   message: {
     id: string;
@@ -60,18 +58,12 @@ type PinnedMessage = {
     };
   };
 };
-//
-type Datas = {
-  "history": {
-    message: Message[];
-    cursor: string;
-    pinned_message: PinnedMessage | null;
-  };
-};
 // RESPONSE
-export declare type ApiV1Chat<D extends Category = Category> = {
-  data:   Datas[D] /** valide category and id */
-        | {} /** no id */
-        | { type: "Not Found"; } /** no category */;
+export declare type ApiV1ChatHistory = {
+  data: {
+    messages: Message[];
+    cursor: string;
+    pinned_message: PinnedMessage |  null;
+  };
   message: string;
 };
