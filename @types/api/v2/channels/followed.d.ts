@@ -1,5 +1,5 @@
 /**
- * api/v2/channels/followed.d.d.ts
+ * api/v2/channels/followed.d.ts
  * Type for https://web.kick.com/api/v1/channels/followed
  * 
  * method: GET

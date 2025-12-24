@@ -1,5 +1,5 @@
 /**
- * api/v2/channels/videos.d.d.ts
+ * api/v2/channels/videos.d.ts
  * Type for https://kick.com/api/v2/channels/<name>/videos
  * 
  * method: GET
