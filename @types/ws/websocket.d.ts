@@ -24,7 +24,8 @@ type Events = "App\\Events\\ChatMessageEvent"
             | "PredictionCreated"
             | "PredictionUpdated"
             | "App\\Events\\ChatroomUpdatedEvent"
-            | "App\\Events\\ChatroomClearEvent";
+            | "App\\Events\\ChatroomClearEvent"
+            | "NotifyFollowersStreamHasStarted";
 // list of events for explude channel in racine of json
 type ExcludeChannel = "ping"
                     | "pong"
@@ -271,6 +272,13 @@ type EventPayloadMap<M extends Message = Message> = {
   // chat clear by moderator event
   "App\\Events\\ChatroomClearEvent": {
     id: string;
+  };
+  // notif stream
+  "NotifyFollowersStreamHasStarted": {
+    title: string;
+    description: string; // title of stream
+    path: string;
+    profile_picture: string;
   };
   /**
    * private event
