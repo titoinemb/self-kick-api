@@ -166,7 +166,7 @@ export declare type ApiV1Channels = {
   follower_badges: any[]; // edit
   offline_banner_image: {
     src: string;
-    srcet: string;
+    srcset: string;
   };
   can_host: boolean;
   user: {
